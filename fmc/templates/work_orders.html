@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    F.M.C. - Work Orders
+{% endblock %}
+
+{% block body %}
+
+</br>
+    <div class="container">
+        <center><h1>Work Orders</h1></center>
+    </div>
+</br>
+
+<div class="list-group">
+
+    
+    {% for work_orders in object_list %}
+       
+        
+        <center>
+            <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} - 
+                
+                {% if work_orders.status == 'Pending' %}
+                <span class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
+                {% elif work_orders.status == '2C2R' %}
+                <span class="badge text-bg-danger">{{ work_orders.status }}</span></strong>
+                {% else %}
+                <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
+                {% endif %}
+                
+            </a>
+            </center>
+
+    {% endfor %}
+
+    
+</div>
+
+{% endblock %}
