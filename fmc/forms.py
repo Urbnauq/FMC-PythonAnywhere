@@ -55,7 +55,23 @@ class WorkOrderFormUpdate(forms.ModelForm):
             #'comments': forms.TextInput(attrs={'class': 'form-control'})
         }
 
-class WorkOrderPartUpdate (forms.ModelForm):
+class WorkOrderPartAdd(forms.ModelForm):
+    
+    class Meta:
+        model = Appliances
+        fields = ('appliance', 'part_name', 'model_number', 'part_number', 'url',)
+        label_suffix = '-'
+        labels = {}
+        
+        widgets = {
+            'appliance': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'part_name': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'model_number': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'part_number': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'url': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+        }
+
+class WorkOrderPartUpdate(forms.ModelForm):
     
     class Meta:
         model = Appliances

@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+  <br/><br/>
+<center>
+    {% if searched %}
+
+    <h1>Work Orders</h1>
+
+        {% for order in orders %}  
+
+        <div class="list-group">
+                    
+                    <center>
+                        <a href="{% url 'work-order-details' order.pk %}" class="list-group-item list-group-item-action"><strong>{{ order.address }} - Apt. {{ order.apartment }} -
+                        
+                            {% if order.status == 'Pending' %}
+                                <span class="badge text-bg-warning">{{ order.status }}</span></strong>
+                            {% elif order.status == '2C2R' %}
+                                <span class="badge text-bg-danger">{{ order.status }}</span></strong>
+                            {% else %}
+                                <span class="badge text-bg-success">{{ order.status }}</span></strong>
+                            {% endif %}
+                            <strong>{{ order.date_added }} 
+                                {% if order.address_appliances.all %} 
+                                    - Part Added
+                               {% endif %}</strong>
+                        </a>
+                        
+                    </center>
+        
+        
+            {% endfor %}
+    
+    {% else %}
+        
+        <h1>Type in search bar to search a game</h1>
+    
+    {% endif %}
+</center>
+{% endblock %}
