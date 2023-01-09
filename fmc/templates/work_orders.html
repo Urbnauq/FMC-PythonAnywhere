@@ -32,11 +32,11 @@
                         <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
                     {% endif %}
                 
-                    <strong>
-                        - {{ work_orders.date_added }} 
-                       {% if work_orders.address_appliances.all %} 
-                           - Part Added
-                      {% endif %}</strong> 
+                    <strong>- {{ work_orders.date_added }} </strong>
+                       
+                    {% if work_orders.address_appliances.all %}
+                       <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
+                    {% endif %}
         
                 
                 </a>
@@ -68,12 +68,12 @@
                         <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
                     {% endif %}
                 
-                <strong>
-                - {{ work_orders.date_added }} 
-               {% if work_orders.address_appliances.all %} 
-                   - Part Added
-              {% endif %}</strong> 
-
+                    <strong>- {{ work_orders.date_added }} </strong>
+                       
+                    {% if work_orders.address_appliances.all %}
+                       <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
+                    {% endif %}
+                    
                 </a>
                 
             </center>
