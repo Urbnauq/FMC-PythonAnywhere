@@ -20,7 +20,7 @@ STATUS_CHOICES = (
 )
 
 class Work(models.Model):
-    
+
     company = models.CharField('Management Company', max_length=64, blank=True)
     address = models.CharField(max_length=64)
     apartment = models.CharField(max_length=64)
@@ -34,7 +34,7 @@ class Work(models.Model):
     status = models.CharField(max_length=12, choices=STATUS_CHOICES, default='Pending')
     date_added = models.DateTimeField(auto_now_add=True, null=True)
     #part = models.ManyToManyField(Appliances, related_name='add_part', blank=True)
-    
+
     def __str__(self):
         return self.address + ' | Apt. ' + self.apartment
 

@@ -12,18 +12,20 @@
     </div>
 </br>
 
+
     <h1 class="ps-3">Today</h1>
+
 
 <div class="list-group">
 
     {% for work_orders in object_list %}
 
         {% if work_orders.date_added.day == work_orders.date_added.now.day %}
-            
+
             <center>
-                
-                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} - 
-                
+
+                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
+
                     {% if work_orders.status == 'Pending' %}
                         <span href="#" class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
                     {% elif work_orders.status == '2C2R' %}
@@ -31,35 +33,37 @@
                     {% else %}
                         <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
                     {% endif %}
-                
+
                     <strong>- {{ work_orders.date_added }} </strong>
-                       
+
                     {% if work_orders.address_appliances.all %}
                        <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
                     {% endif %}
-        
-                
+
+
                 </a>
             </center>
-            
+
         {% endif %}
 
     {% endfor %}
 
 </div>
 </br>
-    
+
+
     <h1 class="ps-3">Older</h1>
+
 
 <div class="list-group">
 
     {% for work_orders in object_list %}
-        
+
         {% if work_orders.date_added.day != work_orders.date_added.now.day %}
-            
+
             <center>
-                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} - 
-                
+                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
+
                     {% if work_orders.status == 'Pending' %}
                         <span class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
                     {% elif work_orders.status == '2C2R' %}
@@ -67,15 +71,15 @@
                     {% else %}
                         <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
                     {% endif %}
-                
+
                     <strong>- {{ work_orders.date_added }} </strong>
-                       
+
                     {% if work_orders.address_appliances.all %}
                        <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
                     {% endif %}
-                    
+
                 </a>
-                
+
             </center>
 
         {% endif %}
