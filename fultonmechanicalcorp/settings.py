@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=*esr$vgdx_5sslte6z&54%!p(ezjp&185!g0c0rwg9ycrfe0)
 DEBUG = True
 
 ALLOWED_HOSTS = ['fmc.pythonanywhere.com']
-#'fmc.pythonanywhere.com test'
+#'fmc.pythonanywhere.com'
 
 # Application definition
 
