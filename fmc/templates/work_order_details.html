@@ -18,23 +18,23 @@
                 <span class="badge text-bg-success">{{ work.status }}</span>
             {% endif %}
         </div>
-        
+
         <div class="card-body">
           <h5 class="card-title fs-3">{{ work.address }} - Apt. {{ work.apartment }}</br>{{ work.city }}, {{ work.state }} {{ work.zip_code }}</h5>
-          <p class="card-text fs-4">Phone Number: {{ work.phone }}</br>Appliance: {{ work.appliance }}</br>
-                                    Name - {{ work.company }}</br>Private Job - {{ work.private }}</p> 
+          <p class="card-text fs-4">Phone Number: {{ work.phone }}</br>Appliance: {{ work.appliance }}</br>Comments: {{ work.comments }}</br>
+                                    Name - {{ work.company }}</br>Private Job - {{ work.private }}</p>
           <a href="{% url 'update-work-order' work.pk %}" class="btn btn-primary">Update</a>
         </div>
       </div>
-      
+
     </br>
 
-    {% if work.address_appliances.all %} 
+    {% if work.address_appliances.all %}
 
     <h3>Parts Required:</h3>
-        
-    {% for appliance in work.address_appliances.all %}  
-        
+
+    {% for appliance in work.address_appliances.all %}
+
         <div class="card text-center">
             <div class="card-header fs-5" style="background-color: #BABABA;"><span class="badge text-bg-info">{{ appliance.appliance }}</span>
             </div>
@@ -45,7 +45,7 @@
             </div>
           </div>
         </br>
-      
+
         {% endfor %}
 
         {% endif %}
