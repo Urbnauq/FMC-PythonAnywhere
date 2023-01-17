@@ -25,7 +25,7 @@ class Work(models.Model):
     address = models.CharField(max_length=64)
     apartment = models.CharField(max_length=64)
     city = models.CharField(max_length=64, null=True)
-    zip_code = models.IntegerField('Zip Code', null=True, blank=True)
+    zip_code = models.IntegerField('Zip Code', null=True)
     state = models.CharField(max_length=12, choices=STATE_CHOICES, default='NEW YORK')
     appliance = models.CharField(max_length=64)
     phone = models.CharField('Phone Number', max_length=64, null=True)
