@@ -20,7 +20,7 @@
         </div>
 
         <div class="card-body">
-          <h5 class="card-title fs-3">{{ work.address }} - Apt. {{ work.apartment }}</br>{{ work.city }}, {{ work.state }} {{ work.zip_code }}</h5>
+          <h5 class="card-title fs-3"><a href="https://www.google.com/maps/place/{{ work.address }}, {{ work.city }}, {{ work.state }} {{ work.zip_code }}" target="_blank">{{ work.address }} - Apt. {{ work.apartment }}</br>{{ work.city }}, {{ work.state }} {{ work.zip_code }}</a></h5>
           <p class="card-text fs-4">Phone Number: {{ work.phone }}</br>Appliance: {{ work.appliance }}</br>Comments: {{ work.comments }}</br>
                                     Name - {{ work.company }}</br>Private Job - {{ work.private }}</p>
           <a href="{% url 'update-work-order' work.pk %}" class="btn btn-primary">Update</a>
