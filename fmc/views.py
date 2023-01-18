@@ -22,7 +22,7 @@ def work_order_render_pdf_view(request, *args, **kwargs):
     # if download: 
     #response['Content-Disposition'] = 'attachment; filename="report.pdf"'
     # if display:
-    response['Content-Disposition'] = 'filename="report.pdf"'
+    response['Content-Disposition'] = 'filename="work_order.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
