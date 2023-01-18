@@ -1,0 +1,50 @@
+{% load static %}
+
+<html>
+
+    <head>
+        <meta charset='utf-8'>
+        <title>Work Order Report</title>
+    </head>
+
+    <body>
+
+        <center>
+            <img src="static/F.M.C.png" height='250px'>
+        </center>
+        
+        <hr>
+
+        </br>
+
+        <center>
+            <h1>
+                
+                Date Created: {{ work_order.date_added }}
+            <hr>
+            </br>
+                Management Company/Name: {{ work_order.company }}
+            <hr>
+            Address:
+            </br>
+                {{ work_order.address }} - {{ work_order.apartment }}
+                </br>
+                {{ work_order.city }}, {{ work_order.state }} {{ work_order.zip_code }}
+            </br>
+            </br>
+                Phone Number: {{ work_order.phone }}
+            </h1>
+            <hr>
+            </br>    
+            <h1> 
+                    Appliance: {{ work_order.appliance }}
+                </br>
+                </br>
+                    Description: {{ work_order.comments }}
+                </h1>
+
+    </center>
+    
+    </body>
+
+    </html>
