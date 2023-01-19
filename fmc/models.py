@@ -29,7 +29,7 @@ class Work(models.Model):
     state = models.CharField(max_length=12, choices=STATE_CHOICES, default='NEW YORK')
     appliance = models.CharField(max_length=64)
     phone = models.CharField('Phone Number', max_length=64, null=True)
-    comments = models.CharField(max_length=64, null=True, blank=True)
+    comments = models.CharField('Description', max_length=64, null=True, blank=True)
     private = models.CharField(max_length=12, choices=PRIVATE_CHOICES, default='')
     status = models.CharField(max_length=12, choices=STATUS_CHOICES, default='Pending')
     date_added = models.DateTimeField(auto_now_add=True, null=True)
