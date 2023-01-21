@@ -20,9 +20,9 @@ def work_order_render_pdf_view(request, *args, **kwargs):
     # Create a Django response object, and specify content_type as pdf
     response = HttpResponse(content_type='application/pdf')
     # if download: 
-    response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
     # if display:
-    #response['Content-Disposition'] = 'filename="work_order.pdf"'
+    response['Content-Disposition'] = 'filename="work_order.pdf"'
     # find the template and render it.
     template = get_template(template_path)
     html = template.render(context)
