@@ -7,10 +7,10 @@ urlpatterns = [
     
     #path('', views.home, name='home'),
     path('work_order_report/<pk>/', work_order_render_pdf_view, name='work-order-pdf'),
-    path('', views.index, name='home'),
+    #path('', views.index, name='home'),
     path('search_games', views.search_orders, name="search-orders"),
     path('autosuggest', views.autosuggest, name="autosuggest"),
-    path('work_orders/', WorkOrders.as_view(), name='work-orders'),
+    path('', WorkOrders.as_view(), name='work-orders'),
     path('work_orders_details/<int:pk>', WorkOrderDetails.as_view(), name='work-order-details'),
     path('create_work_order/', CreateWorkOrder.as_view(), name='create-work-order'),
     path('edit_work_order/<int:pk>', UpdateWorkOrder.as_view(), name='update-work-order'),
