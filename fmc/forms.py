@@ -27,7 +27,7 @@ class WorkOrderForm(forms.ModelForm):
             'appliance': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
-            'comments': forms.TextInput(attrs={'class': 'form-control'})
+            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'})
         }
 
 class WorkOrderFormUpdate(forms.ModelForm):
