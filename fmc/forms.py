@@ -27,7 +27,7 @@ class WorkOrderForm(forms.ModelForm):
             'appliance': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
-            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'})
+            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
         }
 
 class WorkOrderFormUpdate(forms.ModelForm):
@@ -52,7 +52,7 @@ class WorkOrderFormUpdate(forms.ModelForm):
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'status': forms.Select(attrs={'class': 'form-control', 'style': 'text-align-last: center'}),
-            'comments': forms.TextInput(attrs={'class': 'form-control'})
+            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align-last: center'})
         }
 
 class WorkOrderPartAdd(forms.ModelForm):
