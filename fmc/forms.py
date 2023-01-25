@@ -47,7 +47,8 @@ class WorkOrderFormUpdate(forms.ModelForm):
         label_suffix = '-'
         labels = {
             'company': 'Management Company or Name',
-            'private': 'Private Job'
+            'private': 'Private Job',
+            'requested': 'Date Requested',
         }
 
         widgets = {
