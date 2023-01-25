@@ -34,6 +34,7 @@ class Work(models.Model):
     status = models.CharField(max_length=12, choices=STATUS_CHOICES, default='Pending')
     date_added = models.DateTimeField(auto_now_add=True, null=True)
     logo = models.ImageField(null=True, blank=True)
+    requested = models.DateField(null=True, blank=True)
     #part = models.ManyToManyField(Appliances, related_name='add_part', blank=True)
 
     def __str__(self):

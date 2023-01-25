@@ -1,6 +1,9 @@
 from django import forms
 from .models import Work, Appliances
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class WorkOrderForm(forms.ModelForm):
 
     # To remove the colon from label : <------------ This.
@@ -10,11 +13,12 @@ class WorkOrderForm(forms.ModelForm):
 
     class Meta:
         model = Work
-        fields = ('private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments',)
+        fields = ('private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
         label_suffix = '-'
         labels = {
             'company': 'Management Company or Name',
-            'private': 'Private Job'
+            'private': 'Private Job',
+            'resquested': 'Date requested',
         }
 
         widgets = {
@@ -28,13 +32,18 @@ class WorkOrderForm(forms.ModelForm):
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'requested': DateInput(attrs={'class': 'form-control', 'style': 'text-align: center'})
         }
 
 class WorkOrderFormUpdate(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label_suffix = ''
+
     class Meta:
         model = Work
-        fields = ('status', 'private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments',)
+        fields = ('private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
         label_suffix = '-'
         labels = {
             'company': 'Management Company or Name',
@@ -52,10 +61,15 @@ class WorkOrderFormUpdate(forms.ModelForm):
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'status': forms.Select(attrs={'class': 'form-control', 'style': 'text-align-last: center'}),
-            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align-last: center'})
+            'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align-last: center'}),
+            'requested': DateInput(attrs={'class': 'form-control', 'style': 'text-align: center'})
         }
 
 class WorkOrderPartAdd(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label_suffix = ''
 
     class Meta:
         model = Appliances
@@ -72,6 +86,10 @@ class WorkOrderPartAdd(forms.ModelForm):
         }
 
 class WorkOrderPartUpdate(forms.ModelForm):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.label_suffix = ''
 
     class Meta:
         model = Appliances
