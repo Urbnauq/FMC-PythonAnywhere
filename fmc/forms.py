@@ -18,7 +18,7 @@ class WorkOrderForm(forms.ModelForm):
         labels = {
             'company': 'Management Company or Name',
             'private': 'Private Job',
-            'resquested': 'Date requested',
+            'requested': 'Date requested',
         }
 
         widgets = {
