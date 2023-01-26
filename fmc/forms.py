@@ -43,7 +43,7 @@ class WorkOrderFormUpdate(forms.ModelForm):
 
     class Meta:
         model = Work
-        fields = ('private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
+        fields = ('status', 'private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
         label_suffix = '-'
         labels = {
             'company': 'Management Company or Name',
