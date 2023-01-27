@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    F.M.C - Detele Work Order
+{% endblock %}
+
+{% block body %}
+
+</br>
+    <div class="container">
+        <center><h1>F.M.C.</br>Detele Work Order</h1></center>
+    </div>
+
+
+<center>
+        <div class="form-group">
+            <form method="POST" style = "font-weight: bold; font-size: 16px;">
+                {% csrf_token %}
+                <hr>
+            <h2>{{ work.address }} - {{ work.apartment }}</h2>
+            <hr>
+                <strong>Are you sure?!</strong>
+            </br>
+        </br>
+                <button class="btn btn-danger">Detele</button>
+            </form>
+        </br>
+    </div>
+</div>
+</center>
+{% endblock %}
