@@ -14,9 +14,8 @@
         <h3>Rearrange</h3>
     </center>
 </div>
-
+</br>
 <form class="sortable" hx-post="/items" hx-trigger="end">
-    <div class="htmx-indicator">Updating...</div>
     {% for work_orders in object_list %}
 
     {% if work_orders.date_added.day == work_orders.date_added.now.day %}
