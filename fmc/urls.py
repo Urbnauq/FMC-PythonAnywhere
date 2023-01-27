@@ -16,6 +16,7 @@ urlpatterns = [
     path('edit_work_order/<int:pk>', UpdateWorkOrder.as_view(), name='update-work-order'),
     path('work_orders_details/<int:pk>/add_part', AddPart.as_view(), name='add-part'),
     path('work_orders_details/<int:pk>/edit_part', UpdatePart.as_view(), name='update-appliance-part'),
+    path('detele_work_order/<int:pk>/remove', views.DeleteWorkOrder.as_view(), name='delete-work-order'),
     
     # rearrange
     path('rearrange/', views.WorkOrdersRearrange.as_view(), name='work-orders-rearrange'),

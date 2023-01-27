@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Work, Appliances
 from .forms import WorkOrderForm, WorkOrderFormUpdate, WorkOrderPartAdd, WorkOrderPartUpdate
 from django.contrib.messages.views import SuccessMessageMixin
@@ -115,3 +115,9 @@ class UpdatePart(SuccessMessageMixin, UpdateView):
 class WorkOrdersRearrange(ListView):
     model = Work
     template_name = 'rearrange.html'
+
+# Delete 
+class DeleteWorkOrder(DeleteView):
+    model= Work
+    template_name = 'delete_work_order.html'
+    success_url = reverse_lazy('work-orders')
