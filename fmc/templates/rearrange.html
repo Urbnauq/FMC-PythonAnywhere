@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    F.M.C. - Work Orders Rearrange
+{% endblock %}
+
+{% block body %}
+<center>
+
+</br>
+<div class="container">
+    <center>
+        <h1>Work Orders</h1>
+        <h3>Rearrange</h3>
+    </center>
+</div>
+
+<form class="sortable" hx-post="/items" hx-trigger="end">
+    <div class="htmx-indicator">Updating...</div>
+    {% for work_orders in object_list %}
+
+    {% if work_orders.date_added.day == work_orders.date_added.now.day %}
+    <div class="list-group">
+        
+        <a type='hidden' name='item' value='1' href="#" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
+
+        {% if work_orders.status == 'Pending' %}
+            <span href="#" class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
+        {% elif work_orders.status == '2C2R' %}
+            <span class="badge text-bg-danger">{{ work_orders.status }}</span></strong>
+        {% else %}
+            <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
+        {% endif %}
+
+        <strong>- {{ work_orders.date_added }} </strong>
+
+        {% if work_orders.address_appliances.all %}
+           <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
+        {% endif %}
+        </a>
+    
+    </div>
+
+    {% endif %}
+    {% endfor %}
+
+  </form>
+</center>
+
+{% endblock %}

@@ -110,3 +110,8 @@ class UpdatePart(SuccessMessageMixin, UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('update-appliance-part', kwargs={'pk': self.object.pk})
+
+    #rearrange
+class WorkOrdersRearrange(ListView):
+    model = Work
+    template_name = 'rearrange.html'
