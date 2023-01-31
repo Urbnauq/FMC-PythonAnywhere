@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    F.M.C. - Work Orders
+{% endblock %}
+
+{% block body %}
+
+</br>
+    <div class="container">
+        <center>
+            <h1>Work Orders</h1>
+        </center>
+    </div>
+</br>
+<div class="list-group">
+    
+    {% for work_orders in object_list %}
+
+            {% if work_orders.status == 'Pending' %}
+
+            <center>
+
+                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
+
+                        <span href="#" class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
+
+                        <strong>- {{ work_orders.date_added }} </strong>
+
+                    {% if work_orders.address_appliances.all %}
+                       <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
+                    {% endif %}
+
+
+                </a>
+            </center>
+
+        {% endif %}
+
+    {% endfor %}
+
+</div>
+</br>
+{% endblock %}
