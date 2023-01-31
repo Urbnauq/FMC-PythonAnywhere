@@ -19,10 +19,11 @@
 
 
 <div class="list-group">
-
+{% now "d" as current_day %}
+    
     {% for work_orders in object_list %}
 
-        {% if work_orders.date_added.day == work_orders.date_added.now.day %}
+        {% if work_orders.date_added|date:'d' == current_day %}
 
             <center>
 
@@ -61,7 +62,7 @@
 
     {% for work_orders in object_list %}
 
-        {% if work_orders.date_added.day != work_orders.date_added.now.day %}
+        {% if work_orders.date_added|date:'d' != current_day %}
 
             <center>
                 <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
