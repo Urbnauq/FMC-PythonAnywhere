@@ -12,7 +12,20 @@
             <h1>Work Orders</h1>
         </center>
     </div>
-</br>
+    <div class="container">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="{% url 'work-orders-pending' %}"><span class="badge text-bg-warning">Pending</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'work-orders-2c2r' %}"><span class="badge text-bg-danger">2C2R</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'work-orders-completed' %}"><span class="badge text-bg-success">Completed</span></a>
+            </li>
+          </ul>
+        </div>
+    </br>
 <div class="list-group">
     
     {% for work_orders in object_list %}
