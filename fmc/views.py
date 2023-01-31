@@ -65,6 +65,21 @@ class WorkOrders(ListView):
     template_name = 'work_orders.html'
     ordering = ['-date_added']
 
+class WorkOrdersPending(ListView):
+    model = Work
+    template_name = 'work_orders_pending.html'
+    ordering = ['-date_added']
+
+class WorkOrders2C2R(ListView):
+    model = Work
+    template_name = 'work_orders_2c2r.html'
+    ordering = ['-date_added']
+
+class WorkOrdersCompleted(ListView):
+    model = Work
+    template_name = 'work_orders_completed.html'
+    ordering = ['-date_added']
+
 class WorkOrderDetails(DetailView):
     model = Work
     template_name = 'work_order_details.html'
