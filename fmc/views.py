@@ -39,7 +39,7 @@ def work_order_render_pdf_view(request, *args, **kwargs):
 #   return render(request, 'home.html', {})
 
 def index(request):
-    return render(request, 'index.html', {})
+    return render(request, 'maintenance.html', {})
 
 def search_orders(request):
     if request.method == 'POST':
