@@ -16,9 +16,12 @@
 </div>
 </br>
 <form class="sortable" hx-post="/items" hx-trigger="end">
+    {% now "d" as current_day %}
+    
     {% for work_orders in object_list %}
 
-    {% if work_orders.date_added.day == work_orders.date_added.now.day %}
+        {% if work_orders.date_added|date:'d' == current_day %}
+
     <div class="list-group">
         
         <a type='hidden' name='item' value='1' href="#" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} - {{ work_orders.appliance }} - {{ work_orders.phone }}
