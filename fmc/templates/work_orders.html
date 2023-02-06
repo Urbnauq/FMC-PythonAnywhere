@@ -37,47 +37,6 @@
           <a class="nav-link" href="{% url 'work-orders-completed' %}">Completed</a>
         </li>
       </ul>
-<!--
-    <h1 class="ps-3">Today.</h1>
-
-
-<div class="list-group">
-{% now "d" as current_day %}
-    
-    {% for work_orders in object_list %}
-
-
-        {% if work_orders.date_added|date:'d' == current_day %}
-
-            <center>
-
-                <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
-
-                    {% if work_orders.status == 'Pending' %}
-                        <span href="#" class="badge text-bg-warning">{{ work_orders.status }}</span></strong>
-                    {% elif work_orders.status == '2C2R' %}
-                        <span class="badge text-bg-danger">{{ work_orders.status }}</span></strong>
-                    {% else %}
-                        <span class="badge text-bg-success">{{ work_orders.status }}</span></strong>
-                    {% endif %}
-
-                    <strong>- {{ work_orders.date_added }} </strong>
-
-                    {% if work_orders.address_appliances.all %}
-                       <p class="text-primary"><span class="badge bg-secondary">Part Added</span></p>
-                    {% endif %}
-
-
-                </a>
-            </center>
-
-        {% endif %}
-
-    {% endfor %}
-
-</div>
-</br>
--->
 
     <h1 class="ps-3">All</h1>
 
