@@ -19,6 +19,17 @@ STATUS_CHOICES = (
     ('Completed', 'Completed'),
 )
 
+TECHNICIAN = (
+    ('', '-------'),
+    ('Canela', 'Canela'),
+    ('Eddie', 'Eddie'),
+    ('Jansel', 'Jansel'),
+    ('Jose', 'Jose'),
+    ('Luis', 'Luis'),
+    ('Oscar A.', 'Oscar A.'),
+    ('Oscar', 'Oscar'),
+)
+
 class Work(models.Model):
 
     company = models.CharField('Management Company', max_length=64, blank=True)
@@ -35,6 +46,8 @@ class Work(models.Model):
     date_added = models.DateTimeField(auto_now_add=True, null=True)
     logo = models.ImageField(null=True, blank=True)
     requested = models.DateField(null=True, blank=True)
+    completed = models.DateField('Date Complete', null=True, blank=True)
+    complete_by = models.CharField('Complete By', max_length=12, choices=TECHNICIAN, blank=True, default='')
     #part = models.ManyToManyField(Appliances, related_name='add_part', blank=True)
 
     def __str__(self):

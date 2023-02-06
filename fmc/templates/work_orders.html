@@ -7,13 +7,25 @@
 {% block body %}
 
 </br>
+
+<div class="container">
+    <center>
+        <h1>Work Orders</h1>
+    </center>
+</div>
+<!-- 
+    ACTIVE TO REARRANGE ORDERS    
+    
     <div class="container">
         <center>
-            <h1>Work Orders</h1>
+            
             <a href="{% url 'work-orders-rearrange' %}"><strong>Rearrange Work Orders</strong></a>
         </center>
     </div>
-    
+-->
+    <center>
+        <h4>Sort By:</h4>
+    </center>
     <ul class="nav justify-content-center">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="{% url 'work-orders-pending' %}">Pending</a>
@@ -25,7 +37,7 @@
           <a class="nav-link" href="{% url 'work-orders-completed' %}">Completed</a>
         </li>
       </ul>
-
+<!--
     <h1 class="ps-3">Today</h1>
 
 
@@ -33,6 +45,7 @@
 {% now "d" as current_day %}
     
     {% for work_orders in object_list %}
+
 
         {% if work_orders.date_added|date:'d' == current_day %}
 
@@ -64,16 +77,14 @@
 
 </div>
 </br>
+-->
 
-
-    <h1 class="ps-3">Older</h1>
+    <h1 class="ps-3">All</h1>
 
 
 <div class="list-group">
 
     {% for work_orders in object_list %}
-
-        {% if work_orders.date_added|date:'d' != current_day %}
 
             <center>
                 <a href="{% url 'work-order-details' work_orders.pk %}" class="list-group-item list-group-item-action"><strong>{{ work_orders.address }} - Apt. {{ work_orders.apartment }} -
@@ -95,9 +106,6 @@
                 </a>
 
             </center>
-
-        {% endif %}
-
 
     {% endfor %}
         </br>
