@@ -13,7 +13,7 @@ class WorkOrderForm(forms.ModelForm):
 
     class Meta:
         model = Work
-        fields = ('status', 'private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
+        fields = ('status', 'complete_by', 'completed', 'private', 'company', 'address', 'apartment', 'city', 'state', 'zip_code', 'phone','appliance', 'comments', 'requested')
         label_suffix = '-'
         labels = {
             'company': 'Management Company or Name',
@@ -31,9 +31,11 @@ class WorkOrderForm(forms.ModelForm):
             'appliance': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'phone':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'company':forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'status': forms.Select(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'comments': forms.TextInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
             'requested': DateInput(attrs={'class': 'form-control', 'style': 'text-align: center'}),
-            'status': forms.Select(attrs={'class': 'form-control', 'style': 'text-align-last: center'}),
+            'complete_by': forms.Select(attrs={'class': 'form-control', 'style': 'text-align: center'}),
+            'completed': DateInput(attrs={'class': 'form-control', 'style': 'text-align: center'})
         }
 
 class WorkOrderFormUpdate(forms.ModelForm):
